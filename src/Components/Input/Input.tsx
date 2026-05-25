@@ -45,6 +45,7 @@ function Input({ tasks, setTasks }: Props) {
         return task;
       }
     });
+
     setTasks(newTasks);
   }
   return (

@@ -1,18 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Input from "./Components/Input/Input";
 
 import Title from "./Components/Title/Title";
+
 interface taskType {
   text: string;
   id: string;
   completed: boolean;
 }
 function App() {
-  const [tasks, setTasks] = useState<taskType[]>([]);
+  const [tasks, setTasks] = useState<taskType[]>(() => {
+    const saved = localStorage.getItem("tasks");
+    return saved ? JSON.parse(saved) : [];
+  });
   const tasksLength: number = tasks.length;
   const completedTasks: taskType[] = tasks.filter((task) => task.completed);
 
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
   return (
     <>
       <main className=" bg-[#0F172B] h-screen p-4 ">
