@@ -1,29 +1,28 @@
 import { useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import { PiKeyReturnBold } from "react-icons/pi";
-import Task from "../Task/Task";
 import { nanoid } from "nanoid";
 
-interface taskType {
+interface TaskType {
   text: string;
   id: string;
   completed: boolean;
 }
 interface Props {
-  tasks: taskType[];
-  setTasks: (arr: taskType[]) => void;
+  tasks: TaskType[];
+  setTasks: (arr: TaskType[]) => void;
 }
 function Input({ tasks, setTasks }: Props) {
   const [taskText, setTaskText] = useState("");
 
   function addTask(): void {
     if (taskText !== "") {
-      const newTask: taskType = {
+      const newTask: TaskType = {
         text: taskText,
         id: nanoid(),
         completed: false,
       };
-      const updatedTasks: taskType[] = [...tasks, newTask];
+      const updatedTasks: TaskType[] = [...tasks, newTask];
 
       setTasks(updatedTasks);
       setTaskText("");
@@ -32,22 +31,6 @@ function Input({ tasks, setTasks }: Props) {
     console.log(taskText);
   }
 
-  function deleteTask(id: string): void {
-    const newTasks: taskType[] = tasks.filter((task) => task.id !== id);
-
-    setTasks(newTasks);
-  }
-  function toggleTask(id: string): void {
-    const newTasks = tasks.map((task) => {
-      if (task.id === id) {
-        return { ...task, completed: !task.completed };
-      } else {
-        return task;
-      }
-    });
-
-    setTasks(newTasks);
-  }
   return (
     <>
       <div className="flex gap-[10px]">
@@ -69,6 +52,11 @@ function Input({ tasks, setTasks }: Props) {
             onChange={(e) => {
               setTaskText(e.target.value);
               console.log(taskText);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                addTask();
+              }
             }}
             className="
           w-full
@@ -104,17 +92,6 @@ function Input({ tasks, setTasks }: Props) {
         >
           Add
         </button>
-      </div>
-      <div className="flex flex-col gap-[16px]">
-        {tasks &&
-          tasks.map((taskItem) => (
-            <Task
-              key={taskItem.id}
-              task={taskItem}
-              deleteFun={deleteTask}
-              check={toggleTask}
-            />
-          ))}
       </div>
     </>
   );

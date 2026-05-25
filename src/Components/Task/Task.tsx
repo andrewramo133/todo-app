@@ -1,15 +1,15 @@
 import { FaRegTrashCan } from "react-icons/fa6";
-interface taskType {
+interface TaskType {
   text: string;
   id: string;
   completed: boolean;
 }
-interface taskProps {
-  task: taskType;
+interface TaskProps {
+  task: TaskType;
   deleteFun: (id: string) => void;
   check: (id: string) => void;
 }
-function Task({ task, deleteFun, check }: taskProps) {
+function Task({ task, deleteFun, check }: TaskProps) {
   return (
     <div className="w-[434px] h-[71px] rounded-[24px] bg-[#FFFFFF01] p-[16px] border border-[#27272A] flex items-center justify-between">
       <div className="flex gap-[14px]">

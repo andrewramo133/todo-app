@@ -3,19 +3,20 @@ import "./App.css";
 import Input from "./Components/Input/Input";
 
 import Title from "./Components/Title/Title";
+import TaskList from "./Components/TaskList/TaskList";
 
-interface taskType {
+interface TaskType {
   text: string;
   id: string;
   completed: boolean;
 }
 function App() {
-  const [tasks, setTasks] = useState<taskType[]>(() => {
+  const [tasks, setTasks] = useState<TaskType[]>(() => {
     const saved = localStorage.getItem("tasks");
     return saved ? JSON.parse(saved) : [];
   });
   const tasksLength: number = tasks.length;
-  const completedTasks: taskType[] = tasks.filter((task) => task.completed);
+  const completedTasks: TaskType[] = tasks.filter((task) => task.completed);
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -31,7 +32,7 @@ function App() {
             </h2>
           </div>
           <Input tasks={tasks} setTasks={setTasks} />
-          <div>\</div>
+          <TaskList tasks={tasks} setTasks={setTasks} />
         </div>
       </main>
     </>
