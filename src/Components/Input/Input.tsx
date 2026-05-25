@@ -10,13 +10,13 @@ interface TaskType {
 }
 interface Props {
   tasks: TaskType[];
-  setTasks: (arr: TaskType[]) => void;
+  setTasks: React.Dispatch<React.SetStateAction<TaskType[]>>;
 }
 function Input({ tasks, setTasks }: Props) {
   const [taskText, setTaskText] = useState("");
 
   function addTask(): void {
-    if (taskText !== "") {
+    if (taskText.trim() !== "") {
       const newTask: TaskType = {
         text: taskText,
         id: nanoid(),
