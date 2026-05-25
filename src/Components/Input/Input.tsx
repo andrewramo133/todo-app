@@ -9,9 +9,12 @@ interface taskType {
   id: string;
   completed: boolean;
 }
-function Input() {
+interface Props {
+  tasks: taskType[];
+  setTasks: (arr: taskType[]) => void;
+}
+function Input({ tasks, setTasks }: Props) {
   const [taskText, setTaskText] = useState("");
-  const [tasks, setTasks] = useState<taskType[]>([]);
 
   function addTask(): void {
     if (taskText !== "") {
@@ -23,6 +26,7 @@ function Input() {
       const updatedTasks: taskType[] = [...tasks, newTask];
 
       setTasks(updatedTasks);
+      setTaskText("");
     }
 
     console.log(taskText);
