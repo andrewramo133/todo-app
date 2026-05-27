@@ -35,7 +35,7 @@ git clone YOUR_REPOSITORY_LINK
 Go to the project folder:
 
 ```bash
-cd aura-tasks
+cd todo-app
 ```
 
 Install dependencies:
