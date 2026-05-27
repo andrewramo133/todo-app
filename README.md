@@ -50,7 +50,7 @@ Filter tasks using the status buttons
 Clear all tasks using the clear button
 Screenshots
 
-Coming soon...
+![Aura Tasks Screenshot](./screenshots/home.png)
 
 Live Demo
 
