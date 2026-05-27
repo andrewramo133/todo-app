@@ -30,29 +30,38 @@ Clone the repository:
 
 ```bash
 git clone YOUR_REPOSITORY_LINK
+```
 
 Go to the project folder:
 
+```bash
 cd aura-tasks
+```
 
 Install dependencies:
 
+```bash
 npm install
+```
 
 Start the development server:
 
+```bash
 npm run dev
-Usage
-Type a task and press Enter or click Add
-Use the edit button to modify tasks
-Mark tasks as completed using the checkbox
-Filter tasks using the status buttons
-Clear all tasks using the clear button
-Screenshots
+```
+
+## Usage
+
+- Type a task and press Enter or click Add
+- Use the edit button to modify tasks
+- Mark tasks as completed using the checkbox
+- Filter tasks using the status buttons
+- Clear all tasks using the clear button
+
+## Screenshots
 
 ![Aura Tasks Screenshot](./screenshots/home.png)
 
-Live Demo
+## Live Demo
 
 Coming soon...
-```
