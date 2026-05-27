@@ -15,6 +15,8 @@ interface Props {
 type StatusType = "All" | "Active" | "Completed";
 function TaskList({ tasks, setTasks }: Props) {
   const [status, setStatus] = useState<StatusType>("All");
+  const [editingId, setEditingId] = useState<string>("");
+  const [editingText, setEditingText] = useState<string>("");
   // delete task function
   function deleteTask(id: string): void {
     const newTasks: TaskType[] = tasks.filter((task) => task.id !== id);
@@ -31,6 +33,16 @@ function TaskList({ tasks, setTasks }: Props) {
       }
     });
 
+    setTasks(newTasks);
+  }
+  function editTask(newText: string, id: string): void {
+    const newTasks = tasks.map((task) => {
+      if (task.id === id) {
+        return { ...task, text: newText };
+      } else {
+        return task;
+      }
+    });
     setTasks(newTasks);
   }
   const statusArray: StatusType[] = ["All", "Active", "Completed"];
@@ -84,7 +96,12 @@ function TaskList({ tasks, setTasks }: Props) {
           key={taskItem.id}
           task={taskItem}
           deleteFun={deleteTask}
-          check={toggleTask}
+          toggleTask={toggleTask}
+          setEditingTaskId={setEditingId}
+          editingTaskId={editingId}
+          editingText={editingText}
+          setEditingText={setEditingText}
+          editTask={editTask}
         />
       ))}
     </div>
