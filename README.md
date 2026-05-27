@@ -30,38 +30,33 @@ Clone the repository:
 
 ```bash
 git clone YOUR_REPOSITORY_LINK
-```
-
 Go to the project folder:
 
-```bash
-cd aura-tasks
-```
-
+bash
+cd todo-App
 Install dependencies:
 
-```bash
+bash
 npm install
-```
-
 Start the development server:
 
-```bash
+bash
 npm run dev
-```
+Usage
+Type a task and press Enter or click Add
 
-## Usage
+Use the edit button to modify tasks
 
-- Type a task and press Enter or click Add
-- Use the edit button to modify tasks
-- Mark tasks as completed using the checkbox
-- Filter tasks using the status buttons
-- Clear all tasks using the clear button
+Mark tasks as completed using the checkbox
 
-## Screenshots
+Filter tasks using the status buttons
 
-![Aura Tasks Screenshot](./screenshots/home.png)
+Clear all tasks using the clear button
 
-## Live Demo
+Screenshots
+https://./screenshots/home.png
 
+Live Demo
 https://todo-app-mocha-zeta-69.vercel.app
+
+```
