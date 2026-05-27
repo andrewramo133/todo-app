@@ -64,4 +64,4 @@ npm run dev
 
 ## Live Demo
 
-Coming soon...
+https://todo-app-mocha-zeta-69.vercel.app
